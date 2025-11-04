@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduConnect Community Forum</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap");
+
+        header {
+            background-color: #f4f4f4;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__logo a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .nav__links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .link a {
+            padding: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #f4f4f4;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .nav_menu_btn {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        body {
+            font-family: Poppins;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px; 
+        }*/
+        .forum-post {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .forum-post h3 {
+            margin-top: 0;
+        }
+
+        .forum-info {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .likes {
+            color: #e8491d;
+            cursor: pointer;
+        }
+
+        .edit {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        #new-post {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        #new-post textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #e8491d;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff6a3c;
+        }
+
+        .comments-section,
+        .answer-section {
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .comments-section input,
+        .answer-section input {
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo"><a href="#">विद्या</a></div>
+            <ul class="nav__links" id="nav-links">
+                <li class="link"><a href="#home">Home</a></li>
+                <li class="link"><a href="/Codeissance Landing page/CommunityForum/Forum.html">Community</a></li>
+                <li class="link"><a href="/Codeissance Landing page/resource sharing/resourcesharing.html">Resources</a>
+                </li>
+                <li class="link"><a href="/Codeissance Landing page/Room/room.html">Collaborate</a></li>
+                <li class="link"><a href="/Codeissance Landing page/Scolarship/index.html">Scholarships</a></li>
+                <li class="link"><a href="#subscribe">Contact</a></li>
+            </ul>
+                
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Community Forum</h2>
+        <div id="new-post">
+            <h3>Create a New Post</h3>
+            <textarea id="post-content" rows="4"
+                placeholder="Share your thoughts, questions, or experiences..."></textarea>
+            <button onclick="createPost()">Post</button>
+        </div>
+        <div id="forum-posts">
+            <!-- Forum posts will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample initial posts with student names, time, and random content
+        let posts = [
+            { title: "Need help with calculus homework", content: "I'm struggling with derivatives. Can anyone help?", student: "John Doe", time: "2 hours ago", likes: 2, comments: [] },
+            { title: "Scholarship opportunity for STEM students", content: "Just found out about a great scholarship for underprivileged students in STEM fields. Check it out!", student: "Jane Smith", time: "5 hours ago", likes: 5, comments: [] },
+            { title: "Study group for upcoming SAT", content: "Anyone want to form a virtual study group for the SAT next month?", student: "Michael Johnson", time: "1 day ago", likes: 3, comments: [] }
+        ];
+
+        function displayPosts() {
+            const forumPosts = document.getElementById('forum-posts');
+            forumPosts.innerHTML = '';
+            posts.forEach((post, index) => {
+                const postElement = document.createElement('div');
+                postElement.className = 'forum-post';
+                postElement.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p class="forum-info">
+                        Posted by <a href="#">${post.student}</a> - ${post.time} 
+                        | <span class="edit" onclick="editPost(${index})">Edit</span> 
+                        | <span class="likes" onclick="likePost(${index})">${post.likes} Likes</span>
+                    </p>
+                    <p>${post.content}</p>
+                    <button onclick="showAnswerSection(${index})">Answer</button>
+                    <div class="answer-section" id="answer-section-${index}" style="display:none;">
+                        <input type="text" id="answer-input-${index}" placeholder="Write your answer here..." />
+                        <button onclick="addAnswer(${index})">Submit</button>
+                        <div id="answers-${index}"></div>
+                    </div>
+                    <div class="comments-section">
+                        <input type="text" id="comment-input-${index}" placeholder="Add a comment..." />
+                        <button onclick="addComment(${index})">Comment</button>
+                        <div id="comments-${index}"></div>
+                    </div>
+                `;
+                forumPosts.appendChild(postElement);
+                displayComments(index);
+            });
+        }
+
+        function createPost() {
+            const content = document.getElementById('post-content').value;
+            if (content.trim() !== '') {
+                const newPost = {
+                    title: `New post ${posts.length + 1}`,
+                    content: content,
+                    student: "Anonymous", // You can change this to capture the student's name
+                    time: "Just now",
+                    likes: 0,
+                    comments: []
+                };
+                posts.unshift(newPost);
+                displayPosts();
+                document.getElementById('post-content').value = '';
+            }
+        }
+
+        function addComment(index) {
+            const commentInput = document.getElementById(`comment-input-${index}`);
+            const comment = commentInput.value;
+            if (comment.trim() !== '') {
+                posts[index].comments.push(comment);
+                displayComments(index);
+                commentInput.value = '';
+            }
+        }
+
+        function displayComments(index) {
+            const commentsDiv = document.getElementById(`comments-${index}`);
+            commentsDiv.innerHTML = '';
+            posts[index].comments.forEach(comment => {
+                const commentElement = document.createElement('p');
+                commentElement.textContent = comment;
+                commentsDiv.appendChild(commentElement);
+            });
+        }
+
+        function likePost(index) {
+            posts[index].likes += 1;
+            displayPosts();
+        }
+
+        function editPost(index) {
+            const newContent = prompt("Edit your question:", posts[index].content);
+            if (newContent) {
+                posts[index].content = newContent;
+                displayPosts();
+            }
+        }
+
+        function showAnswerSection(index) {
+            const answerSection = document.getElementById(`answer-section-${index}`);
+            answerSection.style.display = answerSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addAnswer(index) {
+            const answerInput = document.getElementById(`answer-input-${index}`);
+            const answerContent = answerInput.value;
+            if (answerContent.trim() !== '') {
+                const answersDiv = document.getElementById(`answers-${index}`);
+                const answerElement = document.createElement('p');
+                answerElement.textContent = answerContent;
+                answersDiv.appendChild(answerElement);
+                answerInput.value = '';
+            }
+        }
+
+        // Initial display of posts
+        displayPosts();
+    </script>
+</body>
+
+</html>

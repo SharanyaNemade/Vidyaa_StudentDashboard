@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .lecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .lecture-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .lecture-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .lecture-info {
+            padding: 15px;
+        }
+        .lecture-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .lecture-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .live-label {
+            background-color: #ff4444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Styles for Join button and text */
+        .join-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between button and text */
+            margin-top: 10px;
+        }
+
+        .btn-zoom {
+            padding: 8px 12px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-zoom:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Live Lectures</h2>
+        <div class="lecture-grid" id="live-lectures"></div>
+
+        <h2>Recorded Lectures</h2>
+        <div class="lecture-grid" id="recorded-lectures"></div>
+    </div>
+
+    <script>
+        const liveLectures = [
+            { title: "Introduction to Machine Learning", professor: "Dr. Alex Rivera", time: "2:00 PM", date: "2024-10-01", image: "MATHSPART2.png" },
+            { title: "Advanced Algorithms", professor: "Dr. Alex Rivera", time: "3:30 PM", date: "2024-10-02", image: "Chem.png" },
+            { title: "Quantum Computing Basics", professor: "Dr. Alex Rivera", time: "1:00 PM", date: "2024-10-03", image: "maths.png" },
+            { title: "Cybersecurity in the Digital Age", professor: "Dr. Alex Rivera", time: "11:00 AM", date: "2024-10-04", image: "bio.png" },
+        ];
+
+        const recordedLectures = [
+            { title: "Data Structures Fundamentals", professor: "Dr. Alex Rivera", date: "2024-09-28", image: "MATHSPART2.png" },
+            { title: "Web Development with React", professor: "Dr. Alex Rivera", date: "2024-09-25", image: "Chem.png" },
+            { title: "Introduction to Blockchain", professor: "Dr. Alex Rivera", date: "2024-09-22", image: "maths.png" },
+            { title: "Database Management Systems", professor: "Dr. Alex Rivera", date: "2024-09-20", image: "bio.png" },
+        ];
+
+        function createLectureCard(lecture, isLive = false) {
+            return `
+                <div class="lecture-card">
+                    <img src="${lecture.image}" alt="${lecture.title}">
+                    <div class="lecture-info">
+                        ${isLive ? '<span class="live-label">LIVE</span>' : ''}
+                        <h3>${lecture.title}</h3>
+                        <p>Professor: ${lecture.professor}</p>
+                        ${isLive ? `
+                            <p>Date: ${lecture.date}</p>
+                            <p>Time: ${lecture.time}</p>
+                            <p>To attend this lecture, join the meeting at ${lecture.time}.</p>
+                            <div class="join-container">
+                                <button class="btn-zoom" onclick="alert('Viewing schedule for ${lecture.title}...')"><a href="https://calendar.google.com/calendar/u/0/r?pli=1">See Schedule</a></button>
+                                <a href="#">Join Zoom Meeting</a>
+                            </div>
+                        ` : `
+                            <p>Recorded on: ${lecture.date}</p>
+                            <a href="#" onclick="alert('Playing recorded lecture: ${lecture.title}')">Watch Recording</a>
+                        `}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderLectures() {
+            const liveLecturesContainer = document.getElementById('live-lectures');
+            const recordedLecturesContainer = document.getElementById('recorded-lectures');
+
+            liveLecturesContainer.innerHTML = liveLectures.map(lecture => createLectureCard(lecture, true)).join('');
+            recordedLecturesContainer.innerHTML = recordedLectures.map(lecture => createLectureCard(lecture)).join('');
+        }
+
+        renderLectures();
+    </script>
+</body>
+</html>

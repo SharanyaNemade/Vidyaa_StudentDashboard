@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Study Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="textbook.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-indigo-600 to-indigo-800 p-4 sticky top-0 z-10 shadow-lg">
+        <div class="container mx-auto">
+            <ul class="flex justify-between items-center flex-wrap space-x-4">
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="maths"><i class="fas fa-square-root-alt mr-2"></i>Maths</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="english"><i class="fas fa-book mr-2"></i>English</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="hindi"><i class="fas fa-language mr-2"></i>Hindi</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="marathi"><i class="fas fa-pen-fancy mr-2"></i>Marathi</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="science"><i class="fas fa-atom mr-2"></i>Science</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="history"><i class="fas fa-landmark mr-2"></i>History</a></li>
+                <li><a href="#" class="nav-link text-white hover:text-yellow-300 px-3 py-2 flex items-center" data-subject="geography"><i class="fas fa-globe-americas mr-2"></i>Geography</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6">       
+        
+        <div id="maths" class="content active">
+            <h2 class="text-3xl font-bold mb-4">Mathematics</h2>
+            <div class="container">
+        
+                <!-- Chapter 0 Card -->
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>Chapter 0: Introduction to Mathematics</h2>
+                        <button class="toggle-btn" onclick="toggleContent(0)">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-0">
+                        <p>This chapter covers basic mathematical concepts and introduces the idea of numbers, operations, and fundamental theories.</p>
+                        <div class="container">
+                            <!-- Introduction to Mathematics -->
+                            <div class="section">
+                                <h2>Explore the World of Mathematics</h2>
+                                <p>
+                                    Mathematics is the foundation of many fields and industries, from science and engineering to economics and everyday life. Let's dive into its various branches and explore how it shapes our world.
+                                </p>
+                            </div>
+                        
+                            <!-- Formula Section -->
+                            <div class="section">
+                                <h2>Key Mathematical Formulas</h2>
+                                <div class="grid">
+                                    <div>
+                                        <p><strong>Pythagoras Theorem:</strong></p>
+                                        <div class="formula">
+                                            a² + b² = c²
+                                        </div>
+                                        <p>This formula helps calculate the lengths of sides in a right-angled triangle.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Quadratic Formula:</strong></p>
+                                        <div class="formula">
+                                            x = [-b ± √(b² - 4ac)] / 2a
+                                        </div>
+                                        <p>Used to find the roots of a quadratic equation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- History of Mathematicians Section -->
+                            <div class="section">
+                                <h2>Great Mathematicians in History</h2>
+                                <div class="grid">
+                                    <div>
+                                        <p><strong>Isaac Newton</strong> (1642–1727)</p>
+                                        <p>
+                                            Known for his groundbreaking work in calculus and the laws of motion, Newton made immense contributions to the world of physics and mathematics.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Ada Lovelace</strong> (1815–1852)</p>
+                                        <p>
+                                            A pioneer of computer science, Ada Lovelace is often considered the first computer programmer, and her work laid the foundation for modern computing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Interesting Facts and Daily Use Section -->
+                            <div class="section">
+                                <h2>Daily Use of Mathematics & Interesting Facts</h2>
+                                <div class="fact">
+                                    <p><strong>Did you know?</strong> The Fibonacci sequence (1, 1, 2, 3, 5, 8, ...) appears in many natural phenomena, including the arrangement of leaves on a stem and the pattern of seeds in a sunflower.</p>
+                                </div>
+                                <div class="fact">
+                                    <p><strong>Everyday Math:</strong> Whether you're calculating your grocery bill, splitting a dinner check, or estimating travel time, math is a part of daily life in ways you may not even notice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Chapter 1 Card -->
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>Chapter 1: Algebra Basics</h2>
+                        <button class="toggle-btn" onclick="toggleContent(1)">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-1">
+                        <p>In this chapter, you'll learn about variables, expressions, equations, and the foundational concepts of algebra.</p>
+                    </div>
+                </div>
+        
+                <!-- Chapter 2 Card -->
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>Chapter 2: Geometry</h2>
+                        <button class="toggle-btn" onclick="toggleContent(2)">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-2">
+                        <p>Explore shapes, angles, lines, and how they interact in the world of geometry.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <script>
+                function toggleContent(chapterNumber) {
+                    const content = document.getElementById(`content-${chapterNumber}`);
+                    const button = content.previousElementSibling.querySelector('button');
+                    
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        button.textContent = 'Show';
+                    } else {
+                        content.style.display = 'block';
+                        button.textContent = 'Collapse';
+                    }
+                }
+            </script>
+        </div>
+
+
+        <div id="english" class="content">
+            <h2 class="text-3xl font-bold mb-4">English</h2>
+            <p>English focuses on language, literature, and composition. It covers grammar, poetry, novels, and effective communication skills.</p>
+            <div class="container">
+        
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>English - Chapter 1: Grammar Basics</h2>
+                        <button class="toggle-btn" onclick="toggleContent('english-1')">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-english-1">
+                        <p>This chapter introduces the basic rules of English grammar, including parts of speech.</p>
+                    </div>
+                </div>
+        
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>English - Chapter 2: Vocabulary Development</h2>
+                        <button class="toggle-btn" onclick="toggleContent('english-2')">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-english-2">
+                        <p>Learn techniques for expanding your vocabulary and using words effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hindi" class="content">
+            <h2 class="text-3xl font-bold mb-4">Hindi</h2>
+            <p>Hindi is a major language in India. The subject covers Hindi grammar, literature, and language skills.</p>
+            <!-- Hindi Subject -->
+            <div class="container">
+
+                    
+                                    <div class="chapter-card">
+                                        <div class="chapter-header">
+                                            <h2>Hindi - Chapter 1: भाषा का परिचय</h2>
+                                            <button class="toggle-btn" onclick="toggleContent('hindi-1')">Show</button>
+                                        </div>
+                                        <div class="chapter-content" id="content-hindi-1">
+                                            <p>इस अध्याय में हिंदी भाषा के मूल तत्वों का परिचय दिया गया है।</p>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="chapter-card">
+                                        <div class="chapter-header">
+                                            <h2>Hindi - Chapter 2: शब्दावली विकास</h2>
+                                            <button class="toggle-btn" onclick="toggleContent('hindi-2')">Show</button>
+                                        </div>
+                                        <div class="chapter-content" id="content-hindi-2">
+                                            <p>शब्दों का सही उपयोग और शब्दावली को बढ़ाने की तकनीकें सीखें।</p>
+                                        </div>
+                                    </div>
+            </div>
+        </div>
+       
+        <div id="marathi" class="content">
+            <h2 class="text-3xl font-bold mb-4">Marathi</h2>
+            <p>Marathi includes studying grammar, literature, and composition in the Marathi language.</p>
+            <div class="container">
+        
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>Marathi - Chapter 1: भाषा परिचय</h2>
+                        <button class="toggle-btn" onclick="toggleContent('marathi-1')">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-marathi-1">
+                        <p>या अध्यायात मराठी भाषेच्या मूलभूत गोष्टींचा परिचय आहे.</p>
+                    </div>
+                </div>
+        
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h2>Marathi - Chapter 2: शब्दकोश विकास</h2>
+                        <button class="toggle-btn" onclick="toggleContent('marathi-2')">Show</button>
+                    </div>
+                    <div class="chapter-content" id="content-marathi-2">
+                        <p>शब्दांचा योग्य उपयोग आणि शब्दकोश वाढविण्याच्या पद्धती शिकणे.</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div id="science" class="content">
+            <h2 class="text-3xl font-bold mb-4">Science</h2>
+            <p>Science explores the natural world through physics, chemistry, biology, and environmental science.</p>
+            <!-- Physics Subject -->
+            <div class="container">
+
+        <!-- Chapter 0 Card for Physics -->
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>Physics - Chapter 0: Introduction to Physics</h2>
+                <button class="toggle-btn" onclick="toggleContent('physics-0')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-physics-0">
+                <p>This chapter introduces fundamental physics concepts, including motion, force, and energy.</p>
+            </div>
+        </div>
+
+        <!-- Chapter 1 Card for Physics -->
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>Physics - Chapter 1: Mechanics</h2>
+                <button class="toggle-btn" onclick="toggleContent('physics-1')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-physics-1">
+                <p>This chapter focuses on the laws of motion and the mechanics of objects.</p>
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div id="history" class="content">
+            <h2 class="text-3xl font-bold mb-4">History</h2>
+            <p>History is the study of past events, including ancient civilizations, world wars, and historical movements.</p>
+                <!-- History Subject -->
+            <div class="container">
+
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>History - Chapter 1: Ancient Civilizations</h2>
+                <button class="toggle-btn" onclick="toggleContent('history-1')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-history-1">
+                <p>This chapter explores the major ancient civilizations and their contributions.</p>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>History - Chapter 2: World Wars</h2>
+                <button class="toggle-btn" onclick="toggleContent('history-2')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-history-2">
+                <p>Understand the causes and impacts of the World Wars on global history.</p>
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div id="geography" class="content">
+            <h2 class="text-3xl font-bold mb-4">Geography</h2>
+            <p>Geography deals with Earth's landscapes, environments, and the relationships between people and their environments.</p>
+            <!-- Geography Subject -->
+            <div class="container">
+
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>Geography - Chapter 1: Earth’s Structure</h2>
+                <button class="toggle-btn" onclick="toggleContent('geography-1')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-geography-1">
+                <p>This chapter covers the physical structure of the Earth and its layers.</p>
+            </div>
+        </div>
+
+        <div class="chapter-card">
+            <div class="chapter-header">
+                <h2>Geography - Chapter 2: Climate Zones</h2>
+                <button class="toggle-btn" onclick="toggleContent('geography-2')">Show</button>
+            </div>
+            <div class="chapter-content" id="content-geography-2">
+                <p>Learn about different climate zones and their characteristics.</p>
+            </div>
+        </div>
+             </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for handling the content change -->
+    <script src="textbook.js"></script>
+</body>
+</html>

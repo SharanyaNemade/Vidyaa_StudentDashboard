@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Course - easylearn</title>
+    <link rel="stylesheet" href="CreateCourse.CSS">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <!-- <img src="/placeholder.svg?height=40&width=40" alt="easylearn logo">
+                <span>easylearn</span> -->
+            </div>
+            <!-- <ul class="nav-links" style="display:flex; align-items:center">
+                <li><a href="professor.html">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul> -->
+        </div>
+    </nav>
+
+    <main>
+        <h1>Create a New Course</h1>
+        <form id="createCourseForm">
+            <div>
+                <label for="title">Course Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div>
+                <label for="duration">Duration</label>
+                <input type="text" id="duration" name="duration" required>
+            </div>
+            <div>
+                <label for="specialFeatures">Special Features</label>
+                <input type="text" id="specialFeatures" name="specialFeatures">
+            </div>
+            <div>
+                <label for="thumbnail">Thumbnail</label>
+                <input type="file" id="thumbnail" name="thumbnail" accept="image/*">
+            </div>
+            <button type="submit">Create Course</button>
+        </form>
+    </main>
+
+    <script src="CreateCourse.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Student File Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="textToFile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="panel left-panel">
+            <h1>Virtual Notebook</h1>
+            <form id="file-form">
+                <input type="text" id="file-name" placeholder="File name" required>
+                <select id="file-extension">
+                    <option value="txt">.txt</option>
+                    <option value="doc">.doc</option>
+                    <option value="pdf">.pdf</option>
+                    <option value="csv">.csv</option>
+                </select>
+                <textarea id="file-content" placeholder="Write your content here..." required></textarea>
+                <button type="submit">Save File</button>
+            </form>
+        </div>
+        <div class="panel right-panel">
+            <h2>Saved Files</h2>
+            <ul id="file-list"></ul>
+        </div>
+    </div>
+
+    <!-- Modal for viewing file content -->
+    <div id="file-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-file-name"></h2>
+            <pre id="modal-file-content"></pre>
+        </div>
+    </div>
+
+    <script src="textToFile.js"></script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Subjects - Courses by Professors</title>
+    <style>
+        header {
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link a {
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f4f4f4;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.link a:hover {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.nav_menu_btn {
+  display: none;
+  font-size: 1.5rem;
+}
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #4a34c5;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .subject-section {
+            display: none;
+        }
+        .subject-section.active {
+            display: block;
+        }
+        h1 {
+            color: #333;
+        }
+        .professor {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .professor h2 {
+            color: #4a34c5;
+            margin-top: 0;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .course {
+            width: 250px;
+            height: 200px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .course img {
+            height: 200px;
+            width: 250px;
+            object-fit: cover;
+        }
+        .course-info {
+            padding: 10px;
+            text-align: center;
+        }
+        .course-info h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+        .course-info p {
+            margin: 5px 0 0;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__logo"><a href="#">विद्या</a></div>
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="/Codeissance Landing page/CommunityForum/Forum.html">Community</a></li>
+          <li class="link"><a href="/Codeissance Landing page/resource sharing/resourcesharing.html">Resources</a></li>
+          <li class="link"><a href="/Codeissance Landing page/Room/room.html">Collaborate</a></li>
+          <li class="link"><a href="/Codeissance Landing page/Scolarship/index.html">Scholarships</a></li>
+          <li class="link"><a href="#subscribe">Contact</a></li>
+        </ul>
+    </nav>
+    <nav class="navbar">
+        <a href="#maths" class="nav-link" data-subject="maths">Maths</a>
+        <a href="#english" class="nav-link" data-subject="english">English</a>
+        <a href="#hindi" class="nav-link" data-subject="hindi">Hindi</a>
+        <a href="#marathi" class="nav-link" data-subject="marathi">Marathi</a>
+        <a href="#science" class="nav-link" data-subject="science">Science</a>
+        <a href="#history" class="nav-link" data-subject="history">History</a>
+        <a href="#geography" class="nav-link" data-subject="geography">Geography</a>
+    </nav>
+
+    <div class="container">
+        <!-- Maths Section -->
+        <div id="maths" class="subject-section active">
+            <h1>Mathematics</h1>
+
+            
+            <div class="professor">
+                <h2>Prof. Saxena</h2>
+                <div class="courses">
+
+                    <div class="course" data-title="Calculus I" data-description="This course covers the fundamentals of calculus including limits, derivatives, and integrals." 
+    data-professor="Prof. Saxena" data-professor-details="Prof. Saxena has over 20 years of experience in teaching calculus and has authored several books." 
+    data-benefits="Comprehensive lectures,Written notes,Interactive problem sessions">
+    <img src="MATHSPART2.png" alt="Calculus I Thumbnail">
+    <div class="course-info">
+        <h3>Calculus I</h3>
+        <p>Ongoing</p>
+    </div>
+</div>
+                    <div class="course" data-title="Linear Algebra" data-description="Linear Algebra explores vector spaces, matrices, and linear transformations. It is essential for solving systems of equations and is widely applied in fields like computer science, engineering, and data analysis. Key topics include eigenvalues, eigenvectors, and matrix operations." 
+    data-professor="Prof. Saxena" data-professor-details="Prof. Saxena has over 20 years of experience in teaching calculus and has authored several books." 
+    data-benefits="Comprehensive lectures,Written notes,Interactive problem sessions">
+    <img src="MATHSPART2.png" alt="Calculus I Thumbnail">
+    <div class="course-info">
+        <h3>Linear Algebra</h3>
+        <p>Ongoing</p>
+    </div>
+</div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Dr. Mehta</h2>
+                <div class="courses">
+
+                    <div class="course" data-title="Graphs in Maths" data-description="Graphs in mathematics involve studying points (vertices) connected by lines (edges). They are used to model relationships and structures in various fields like computer science, engineering, and social networks. Key concepts include graph types, connectivity, and traversal algorithms." 
+    data-professor="Prof. Mehta" data-professor-details="Prof. Mehta has over 20 years of experience in teaching calculus and has authored several books." 
+    data-benefits="Comprehensive lectures,Written notes,Interactive problem sessions">
+    <img src="maths1.png" alt="Calculus I Thumbnail">
+    <div class="course-info">
+        <h3>Graphs in Maths</h3>
+        <p>Ongoing</p>
+    </div>
+</div>
+
+<div class="course" data-title="Geometry" data-description="Geometry focuses on the properties and relationships of shapes, sizes, and dimensions. It covers key concepts like points, lines, angles, and polygons, and is foundational in fields like architecture, engineering, and art." 
+data-professor="Prof. Mehta" data-professor-details="Prof. Mehta has over 20 years of experience in teaching calculus and has authored several books." 
+data-benefits="Comprehensive lectures,Written notes,Interactive problem sessions">
+<img src="maths1.2.png" alt="Calculus I Thumbnail">
+<div class="course-info">
+    <h3>Geometry</h3>
+    <p>Ongoing</p>
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Section -->
+        <div id="english" class="subject-section">
+            <h1>English</h1>
+            <div class="professor">
+                <h2>Dr. Smith</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="bio.png" alt="Composition Thumbnail">
+                        <div class="course-info">
+                            <h3>Composition</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="bio.png" alt="British Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>British Literature</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Prof. Williams</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="Phy.png" alt="American Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>American Literature</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="Phy.png" alt="Drama Thumbnail">
+                        <div class="course-info">
+                            <h3>Drama and Theatre</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat similar structure for Hindi, Marathi, Science, History, Geography -->
+
+        <!-- Hindi Section -->
+        <div id="hindi" class="subject-section">
+            <h1>Hindi</h1>
+            <div class="professor">
+                <h2>Prof. Sharma</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="Chem.png" alt="Basic Hindi Thumbnail">
+                        <div class="course-info">
+                            <h3>Basic Hindi</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="Chem.png" alt="Hindi Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>Hindi Literature</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Dr. Verma</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="geo.png" alt="Hindi Poetry Thumbnail">
+                        <div class="course-info">
+                            <h3>Hindi Poetry</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="geo.png" alt="Hindi Drama Thumbnail">
+                        <div class="course-info">
+                            <h3>Hindi Drama</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Geography Section -->
+        <div id="geography" class="subject-section">
+            <h1>Geography</h1>
+            <div class="professor">
+                <h2>Prof. Sharma</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="Chem.png" alt="Basic Hindi Thumbnail">
+                        <div class="course-info">
+                            <h3>Geography chapter 1</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="Chem.png" alt="Hindi Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>Geography mapping</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Dr. Verma</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="geo.png" alt="Hindi Poetry Thumbnail">
+                        <div class="course-info">
+                            <h3>Geography entire course</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="geo.png" alt="Hindi Drama Thumbnail">
+                        <div class="course-info">
+                            <h3>Landscapes</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- History Section -->
+        <div id="history" class="subject-section">
+            <h1>History</h1>
+            <div class="professor">
+                <h2>Dr. Smith</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="bio.png" alt="Composition Thumbnail">
+                        <div class="course-info">
+                            <h3>History Chapter 1</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="bio.png" alt="British Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>British History</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Prof. Williams</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="Phy.png" alt="American Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>Colonial History</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="Phy.png" alt="Drama Thumbnail">
+                        <div class="course-info">
+                            <h3>Indian Kings</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Marathi Section -->
+        <div id="marathi" class="subject-section active">
+            <h1>Marathi</h1>
+            <div class="professor">
+                <h2>Prof. Saxena</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="MATHSPART2.png" alt="Calculus I Thumbnail">
+                        <div class="course-info">
+                            <h3>Marathi Vyakran</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="MATHSPART2.png" alt="Linear Algebra Thumbnail">
+                        <div class="course-info">
+                            <h3>Marathi Nibandh</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Dr. Mehta</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="maths1.png" alt="Probability Thumbnail">
+                        <div class="course-info">
+                            <h3>Marathi patra lekhan</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="maths1.2.png" alt="Statistics Thumbnail">
+                        <div class="course-info">
+                            <h3>Marathi prose</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Section -->
+        <div id="science" class="subject-section">
+            <h1>Science</h1>
+            <div class="professor">
+                <h2>Dr. Smith</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="bio.png" alt="Composition Thumbnail">
+                        <div class="course-info">
+                            <h3>Science Chapter 1</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="bio.png" alt="British Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>Biology</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="professor">
+                <h2>Prof. Williams</h2>
+                <div class="courses">
+                    <div class="course">
+                        <img src="Phy.png" alt="American Literature Thumbnail">
+                        <div class="course-info">
+                            <h3>Physics</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <img src="Phy.png" alt="Drama Thumbnail">
+                        <div class="course-info">
+                            <h3>Chemistry</h3>
+                            <p>Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Similar structure for Marathi, Science, History, Geography -->
+
+    
+        
+        <!-- Add two professors and courses for each subject similar to the above format -->
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const subjectSections = document.querySelectorAll('.subject-section');
+
+            function showSection(subjectId) {
+                subjectSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(subjectId).classList.add('active');
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const subjectId = this.getAttribute('data-subject');
+                    showSection(subjectId);
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const courses = document.querySelectorAll('.course');
+
+        courses.forEach(course => {
+            course.addEventListener('click', function() {
+                const title = course.getAttribute('data-title');
+                const description = course.getAttribute('data-description');
+                const professor = course.getAttribute('data-professor');
+                const professorDetails = course.getAttribute('data-professor-details');
+                const benefits = course.getAttribute('data-benefits');
+
+                // Navigate to the course details page with URL parameters
+                window.location.href = `course-details.html?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&professor=${encodeURIComponent(professor)}&professorDetails=${encodeURIComponent(professorDetails)}&benefits=${encodeURIComponent(benefits)}`;
+            });
+        });
+    });
+    </script>
+</body>
+</html>

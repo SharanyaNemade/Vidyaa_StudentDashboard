@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>छात्रवृत्ति Application Form</title>
+    <style>
+        header {
+            background-color: #f4f4f4;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__logo a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .nav__links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .link a {
+            padding: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        .nav_menu_btn {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo"><a href="#">विद्या</a></div>
+            <ul class="nav__links" id="nav-links">
+                <li class="link"><a href="#home">Home</a></li>
+                <li class="link"><a href="/Codeissance Landing page/CommunityForum/Forum.html">Community</a></li>
+                <li class="link"><a href="/Codeissance Landing page/resource sharing/resourcesharing.html">Resources</a>
+                </li>
+                <li class="link"><a href="/Codeissance Landing page/Room/room.html">Collaborate</a></li>
+                <li class="link"><a href="/Codeissance Landing page/Scolarship/index.html">Scholarships</a></li>
+                <li class="link"><a href="#subscribe">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+
+
+        <h1>Application form</h1>
+
+        <form id="applicationForm">
+            <div class="form-section active" id="personalDetails">
+                <h2>Personal Details</h2>
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number *</label>
+                    <input type="text" id="mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" required>
+                        <option value="">Choose Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <input type="text" id="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="adhar">Adhar Card *</label>
+                    <input type="text" id="adhar" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="nextSection('bankDetails')">Next</button>
+                </div>
+            </div>
+
+            <div class="form-section" id="bankDetails">
+                <h2>Bank Details</h2>
+                <div class="form-group">
+                    <label for="bankName">Bank Name *</label>
+                    <input type="text" id="bankName" required>
+                </div>
+                <div class="form-group">
+                    <label for="accountNumber">Account Number *</label>
+                    <input type="text" id="accountNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch *</label>
+                    <input type="text" id="branch" required>
+                </div>
+                <h2>Income Details</h2>
+                <div class="form-group">
+                    <label for="income">Income *</label>
+                    <input type="number" id="income" required>
+                </div>
+                <div class="form-group">
+                    <label for="proofOfIncome">Proof of Income *</label>
+                    <input type="file" id="proofOfIncome" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary"
+                        onclick="previousSection('personalDetails')">Previous</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="nextSection('academicDetails')">Next</button>
+                </div>
+            </div>
+
+            <div class="form-section" id="academicDetails">
+                <h2>Academic Details</h2>
+                <div class="form-group">
+                    <label for="collegeName">Name of College *</label>
+                    <input type="text" id="collegeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="uid">UID *</label>
+                    <input type="text" id="uid" required>
+                </div>
+                <div class="form-group">
+                    <label for="collegeEmail">Email *</label>
+                    <input type="email" id="collegeEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="degree">Degree *</label>
+                    <select id="degree" required>
+                        <option value="">Choose Degree</option>
+                        <option value="bachelors">Bachelor's</option>
+                        <option value="masters">Master's</option>
+                        <option value="phd">Ph.D.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gpa">GPA *</label>
+                    <input type="number" id="gpa" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="achievements">Achievements</label>
+                    <input type="text" id="achievements">
+                </div>
+                <div class="form-group">
+                    <label for="extracurricular">Extracurricular Activities</label>
+                    <input type="text" id="extracurricular">
+                </div>
+                <div class="form-group">
+                    <label for="recommendation">Letter of Recommendation</label>
+                    <input type="file" id="recommendation">
+                </div>
+                <div class="form-group">
+                    <label for="certificates">Certificates</label>
+                    <input type="file" id="certificates" multiple>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary"
+                        onclick="previousSection('bankDetails')">Previous</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function nextSection(sectionId) {
+            document.querySelector('.form-section.active').classList.remove('active');
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function previousSection(sectionId) {
+            document.querySelector('.form-section.active').classList.remove('active');
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+
+</html>

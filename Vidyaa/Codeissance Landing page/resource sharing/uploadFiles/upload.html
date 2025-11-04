@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Project Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            gap: 20px;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .project {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        #accessForm {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h1>Student Project Upload</h1>
+            <form id="projectForm">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" required>
+                
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" required>
+                
+                <label for="projectCode">Project Code:</label>
+                <textarea id="projectCode" rows="10" required></textarea>
+                
+                <label for="accessLevel">Access Level:</label>
+                <select id="accessLevel">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="restricted">Restricted</option>
+                </select>
+                
+                <label for="accessCode">Access Code (for restricted projects):</label>
+                <input type="text" id="accessCode">
+                
+                <button type="submit">Upload Project</button>
+            </form>
+        </div>
+        
+        <div class="right-column">
+            <h2>Uploaded Projects</h2>
+            <form id="accessForm">
+                <label for="projectAccessCode">Enter Access Code:</label>
+                <input type="text" id="projectAccessCode">
+                <button type="submit">Access Project</button>
+            </form>
+            <div id="projectList">
+                <!-- Projects will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let projects = [];
+
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const projectName = document.getElementById('projectName').value;
+            const studentName = document.getElementById('studentName').value;
+            const projectCode = document.getElementById('projectCode').value;
+            const accessLevel = document.getElementById('accessLevel').value;
+            const accessCode = document.getElementById('accessCode').value;
+            
+            const project = {
+                name: projectName,
+                student: studentName,
+                code: projectCode,
+                access: accessLevel,
+                accessCode: accessCode
+            };
+            
+            projects.push(project);
+            displayProjects();
+            
+            e.target.reset();
+        });
+        
+        document.getElementById('accessForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const accessCode = document.getElementById('projectAccessCode').value;
+            displayProjects(accessCode);
+        });
+        
+        function displayProjects(accessCode = '') {
+            const projectList = document.getElementById('projectList');
+            projectList.innerHTML = '';
+            
+            projects.forEach(project => {
+                if (project.access === 'public' || 
+                    (project.access === 'restricted' && project.accessCode === accessCode) ||
+                    accessCode === 'admin') {
+                    const projectElement = document.createElement('div');
+                    projectElement.className = 'project';
+                    projectElement.innerHTML = `
+                        <h3>${project.name}</h3>
+                        <p>Student: ${project.student}</p>
+                        <p>Access Level: ${project.access}</p>
+                        <pre>${project.code}</pre>
+                    `;
+                    projectList.appendChild(projectElement);
+                }
+            });
+            
+            if (projectList.children.length === 0) {
+                projectList.innerHTML = '<p>No projects available or incorrect access code.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

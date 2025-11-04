@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Types</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Shepherd.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shepherd.js/8.0.1/css/shepherd.css" />
+
+    <!-- Shepherd.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd.js/8.0.1/js/shepherd.min.js"></script>
+
+    <style>
+        /* Custom styles for Shepherd.js modal overlay */
+        .shepherd-modal-overlay-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            /* Darker background */
+            z-index: 10000;
+            /* Ensure it's on top */
+            pointer-events: none;
+        }
+
+        .shepherd-enabled .shepherd-element {
+            z-index: 10001;
+            /* Ensures the highlighted element is above the overlay */
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav__logo"><a href="#">विद्या</a></div>
+        <ul class="nav__links" id="nav-links">
+            <li class="link"><a href="#home">Home</a></li>
+            <li class="link"><a href="/Codeissance Landing page/CommunityForum/Forum.html">Community</a></li>
+            <li class="link"><a href="/Codeissance Landing page/resource sharing/resourcesharing.html">Resources</a>
+            </li>
+            <li class="link"><a href="/Codeissance Landing page/Room/room.html">Collaborate</a></li>
+            <li class="link"><a href="/Codeissance Landing page/Scolarship/index.html">Scholarships</a></li>
+            <li class="link"><a href="#subscribe">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 style="text-align:center;">Scholarships</h1>
+
+    <section id="services">
+        <div class="container">
+            <div class="grid-cols-3" id="scholarship-grid">
+                <!-- Scholarship cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section id="subscribe">
+        <div class="container">
+            <h2>Tell Us Your Interests</h2>
+            <p>Select the scholarship category you're interested in, and subscribe to our newsletter to receive daily
+                updates.</p>
+
+            <form id="subscription-form">
+                <div>
+                    <label for="scholarship-interest">Select Scholarship Type:</label>
+                    <select id="scholarship-interest" name="scholarship-interest">
+                        <option value="merit-based">Merit Based Scholarship</option>
+                        <option value="need-based">Need Based Scholarship</option>
+                        <option value="international">International Scholarships</option>
+                        <option value="minority">Minority Scholarship</option>
+                        <option value="research">Research Scholarship</option>
+                        <option value="all">All Scholarships</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn">Subscribe to Newsletter</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const scholarshipTypes = [
+            {
+                title: "Merit Based Scholarship",
+                description: "Recognizing academic excellence and outstanding achievements of students across various fields of study.",
+                link: "/Codeissance Landing Page/Scolarship/Merit.html"
+            },
+            {
+                title: "Need Based Scholarship",
+                description: "Providing financial assistance to students who demonstrate significant financial need to pursue their education.",
+                link: "/Codeissance Landing Page/Scolarship/Need.html"
+            },
+            {
+                title: "International Scholarships",
+                description: "Supporting international students to study abroad and promote cultural exchange and global understanding.",
+                link: "/Codeissance Landing Page/Application/Application.html"
+            },
+            {
+                title: "Minority Scholarship",
+                description: "Empowering underrepresented groups by providing educational opportunities and promoting diversity in higher education.",
+                link: "/Codeissance Landing Page/Application/Application.html"
+            },
+            {
+                title: "Research Scholarship",
+                description: "Encouraging innovative research projects and supporting students pursuing advanced studies in various disciplines.",
+                link: "/Codeissance Landing Page/Application/Application.html"
+            },
+            {
+                title: "All Scholarships",
+                description: "Explore a comprehensive list of all available scholarships to find the perfect opportunity for your academic journey.",
+                link: "/Codeissance Landing Page/Application/Application.html"
+            }
+        ];
+
+        function createScholarshipCard(scholarship) {
+            return `
+                <div class="card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="featured_info">
+                        <span>${scholarship.title}</span>
+                        <p>${scholarship.description}</p>
+                    </div>
+                    <a href="${scholarship.link}" class="btn">View Scholarships</a>
+                </div>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('scholarship-grid');
+            scholarshipTypes.forEach(scholarship => {
+                container.innerHTML += createScholarshipCard(scholarship);
+            });
+
+            // Initialize Shepherd.js tour
+            const tour = new Shepherd.Tour({
+                defaultStepOptions: {
+                    cancelIcon: {
+                        enabled: true
+                    },
+                    classes: 'shepherd-theme-arrows',
+                    scrollTo: { behavior: 'smooth', block: 'center' },
+                    modalOverlayOpeningPadding: 5, // Adds a bit of padding around the highlighted element
+                }
+            });
+
+            // Add steps to the tour with modal mode
+            tour.addStep({
+                id: 'welcome',
+                text: 'Welcome to the Scholarship Types page! Let\'s take a tour of the available features.',
+                attachTo: {
+                    element: '.nav__logo',
+                    on: 'bottom'
+                },
+                buttons: [
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                modal: true // Enable modal mode for this step
+            });
+
+            tour.addStep({
+                id: 'navigation',
+                text: 'Use these navigation links to explore different sections of the website.',
+                attachTo: {
+                    element: '.nav__links',
+                    on: 'bottom'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back
+                    },
+                    {
+                        text: 'Next',
+                        action: tour.next
+                    }
+                ],
+                modal: true // Enable modal mode for this step
+            });
+
+            // Add steps for each scholarship type
+            scholarshipTypes.forEach((scholarship, index) => {
+                tour.addStep({
+                    id: `scholarship-${index}`,
+                    text: `<strong>${scholarship.title}:</strong> ${scholarship.description}`,
+                    attachTo: {
+                        element: `.card:nth-child(${index + 1})`,
+                        on: 'bottom'
+                    },
+                    buttons: [
+                        {
+                            text: 'Back',
+                            action: tour.back
+                        },
+                        {
+                            text: 'Next',
+                            action: tour.next
+                        }
+                    ],
+                    modal: true // Enable modal mode for each scholarship step
+                });
+            });
+
+            tour.addStep({
+                id: 'subscribe',
+                text: "Don't forget to subscribe to our newsletter to receive updates on scholarships!",
+                attachTo: {
+                    element: '#subscribe',
+                    on: 'top'
+                },
+                buttons: [
+                    {
+                        text: 'Back',
+                        action: tour.back
+                    },
+                    {
+                        text: 'Finish',
+                        action: tour.complete
+                    }
+                ],
+                modal: true // Enable modal mode for this step
+            });
+
+            // Start the tour
+            tour.start();
+
+        });
+
+        document.getElementById('subscription-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const interestDropdown = document.getElementById('scholarship-interest');
+            const selectedInterestText = interestDropdown.options[interestDropdown.selectedIndex].text;
+            const email = document.getElementById('email').value;
+
+            alert('Thank you for subscribing!');
+        });
+    </script>
+</body>
+
+</html>

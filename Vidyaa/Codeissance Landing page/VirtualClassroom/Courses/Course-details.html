@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <style>
+        header {
+  background-color: #f4f4f4;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link a {
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f4f4f4;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.link a:hover {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.nav_menu_btn {
+  display: none;
+  font-size: 1.5rem;
+}
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4a34c5;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        .professor-info {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .professor-info h2 {
+            color: #4a34c5;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4a34c5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__logo"><a href="#">विद्या</a></div>
+        <ul class="nav__links" id="nav-links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="/Codeissance Landing page/CommunityForum/Forum.html">Community</a></li>
+          <li class="link"><a href="/Codeissance Landing page/resource sharing/resourcesharing.html">Resources</a></li>
+          <li class="link"><a href="/Codeissance Landing page/Room/room.html">Collaborate</a></li>
+          <li class="link"><a href="/Codeissance Landing page/Scolarship/index.html">Scholarships</a></li>
+          <li class="link"><a href="#subscribe">Contact</a></li>
+        </ul>
+      </nav>
+    <div class="container">
+        <h1 id="course-title">Course Title</h1>
+        <p id="course-description">This is a detailed description of the course.</p>
+
+        <div class="professor-info">
+            <h2 id="professor-name">Professor Name</h2>
+            <p id="professor-details">Information about the professor and his experience.</p>
+        </div>
+
+        <h2>Course Benefits</h2>
+        <ul id="course-benefits">
+            <li>Benefit 1</li>
+            <li>Benefit 2</li>
+            <li>Benefit 3</li>
+        </ul>
+
+        <h2>Other Details</h2>
+        <p id="other-details">This course includes written notes and recorded lectures from the professor.</p>
+        <br>
+        <p id="other-details">Click on the button below to see the schedule of the lectures.</p>
+
+        <a href="https://calendar.google.com/calendar/u/0/r?pli=1" class="back-btn">Lecture Schedule</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve course data from URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const courseTitle = params.get('title');
+            const courseDescription = params.get('description');
+            const professorName = params.get('professor');
+            const professorDetails = params.get('professorDetails');
+            const courseBenefits = params.get('benefits').split(',');
+
+            // Update the content dynamically based on the clicked course
+            document.getElementById('course-title').textContent = courseTitle;
+            document.getElementById('course-description').textContent = courseDescription;
+            document.getElementById('professor-name').textContent = professorName;
+            document.getElementById('professor-details').textContent = professorDetails;
+
+            const benefitsList = document.getElementById('course-benefits');
+            benefitsList.innerHTML = '';
+            courseBenefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                benefitsList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

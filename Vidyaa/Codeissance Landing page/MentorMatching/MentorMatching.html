@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Match</title>
+    <link rel="stylesheet" href="MentorMatching.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+
+    <div id="input-card" class="card">
+        <h1>What do you want to learn?</h1>
+        <input type="text" id="learningGoal"
+            placeholder="e.g., Machine Learning, Creative Writing, Business Strategy" />
+        <button id="match-btn">Find Your Mentor</button>
+    </div>
+
+    <div id="mentor-card" class="card">
+        <h2 id="learningGoalDisplay"></h2>
+        <div class="mentor-details">
+            <img id="mentor-avatar" alt="Mentor Avatar" />
+            <h3 id="mentor-name"></h3>
+            <p id="mentor-bio"></p>
+            <div id="mentor-skills" class="skills-container"></div>
+        </div>
+        <button id="back-btn">Back</button>
+        <button id="back-btn"><a href="/Codeissance Landing page/MentorMatching/Lectures/Lectures.html">Connect with
+                me...</a></button>
+            
+    </div>
+
+
+    <script src="MentorMatching.js"></script>
+</body>
+
+</html>

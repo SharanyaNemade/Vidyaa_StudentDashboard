@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Standard-Based Subject and Course Selector</title>
+    <link rel="stylesheet" href="VirtualClassroom.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .standard-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .standard-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+        }
+
+        .standard-buttons button:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .standard-buttons button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 300%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: skewX(45deg);
+            transition: left 0.7s;
+        }
+
+        .standard-buttons button:hover::before {
+            left: 120%;
+        }
+
+        /* Remove underline from links inside buttons */
+        .standard-buttons a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Content area */
+        #teacherCourses {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            color: #555;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .standard-buttons button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Fade-in effect */
+        .fade-in {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Select Your Standard</h1>
+
+    <!-- Buttons for standards -->
+    <div class="standard-buttons">
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">7th Standard</a></button>
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">8th Standard</a></button>
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">9th Standard</a></button>
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">10th Standard</a></button>
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">11th Standard</a></button>
+        <button><a href="/Codeissance Landing page/VirtualClassroom/Courses/Course.html">12th Standard</a></button>
+    </div>
+
+    <div id="teacherCourses"></div>
+
+    <script>
+        function showCourses(standard) {
+            const coursesDiv = document.getElementById("teacherCourses");
+            const courseInfo = `Displaying courses for ${standard} Standard.`;
+
+            coursesDiv.textContent = courseInfo;
+            coursesDiv.classList.add('fade-in');
+        }
+    </script>
+</body>
+
+</html>
